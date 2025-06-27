@@ -145,6 +145,16 @@
 
   <div id="games" class="game-grid"></div>
 
+    <div style="text-align: center; padding: 1rem;">
+  <button id="versionButton" class="filter-btn" style="margin-top: 1rem;">
+    📦 Check Latest Release
+  </button>
+  <div id="releaseInfo" style="margin-top: 1rem; display: none;">
+    <p>🚀 Version: <strong id="version">Loading...</strong></p>
+    <p>🗒️ Description: <span id="versionDesc">Fetching...</span></p>
+  </div>
+</div>
+
   <script>
     const games = [
       { title: "Elden Ring", genre: "rpg", platform: "PC", image: "https://i.ytimg.com/vi/dV3_y16jEx0/maxresdefault.jpg", rating: 5 },
@@ -227,6 +237,25 @@
       statusMap.set(title, newStatus);
       displayGames();
     }
+
+    const versionButton = document.getElementById("versionButton");
+  const releaseInfo = document.getElementById("releaseInfo");
+
+  versionButton.addEventListener("click", () => {
+    releaseInfo.style.display = "block";
+    versionButton.disabled = true;
+
+    fetch("https://api.github.com/repos/Vishnu-Vardhan99/Game-Library-cicd/releases/latest")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("version").innerText = data.tag_name;
+        document.getElementById("versionDesc").innerText = data.body || "No description.";
+      })
+      .catch(() => {
+        document.getElementById("version").innerText = "Failed to load";
+        document.getElementById("versionDesc").innerText = "";
+      });
+  });
 
     searchBar.addEventListener("input", displayGames);
     displayGames();
