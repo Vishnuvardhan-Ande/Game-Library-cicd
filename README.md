@@ -2,7 +2,7 @@
 
 A sleek and modern game collection website where users can track games they've played or plan to play — with live search, filtering, and dark mode.
 
-🔗 **Live Demo**: [Click here](https://vishnu-vardhan99.github.io/Game-Library-cicd/)
+🔗 **Live Demo**: [Click here](https://vishnuvardhan-ande.github.io/Game-Library-cicd/)
 
 ---
 
