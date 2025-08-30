@@ -245,7 +245,7 @@
     releaseInfo.style.display = "block";
     versionButton.disabled = true;
 
-    fetch("https://api.github.com/repos/Vishnu-Vardhan99/Game-Library-cicd/releases/latest")
+    fetch("https://api.github.com/repos/Vishnuvardhan-Ande/Game-Library-cicd/releases/latest")
       .then(res => res.json())
       .then(data => {
         document.getElementById("version").innerText = data.tag_name;
